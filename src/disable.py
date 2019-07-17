@@ -5,8 +5,9 @@ import Utils.HandlerUtil as Util
 
 ExtensionShortName = "SampleExtension"
 
+
 def main():
-    waagent.LoggerInit('/var/log/waagent.log','/dev/stdout')
+    waagent.LoggerInit('/var/log/waagent.log', '/dev/stdout')
     waagent.Log("%s started to handle." % ExtensionShortName)
 
     operation = "disable"
@@ -25,5 +26,5 @@ def parse_context(operation):
     return hutil
 
 
-if __name__ == '__main__' :
+if __name__ == '__main__':
     main()

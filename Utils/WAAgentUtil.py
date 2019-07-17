@@ -21,6 +21,7 @@ import imp
 import os
 import os.path
 
+
 #
 # The following code will search and load waagent code and expose
 # it as a submodule of current module
@@ -42,6 +43,7 @@ def searchWAAgent():
             return agentPath
     return None
 
+
 waagent = None
 agentPath = searchWAAgent()
 if agentPath:
@@ -53,13 +55,17 @@ if not hasattr(waagent, "AddExtensionEvent"):
     """
     If AddExtensionEvent is not defined, provide a dummy impl.
     """
+
+
     def _AddExtensionEvent(*args, **kwargs):
         pass
+
+
     waagent.AddExtensionEvent = _AddExtensionEvent
 
 if not hasattr(waagent, "WALAEventOperation"):
     class _WALAEventOperation:
-        HeartBeat="HeartBeat"
+        HeartBeat = "HeartBeat"
         Provision = "Provision"
         Install = "Install"
         UnIsntall = "UnInstall"
@@ -67,7 +73,9 @@ if not hasattr(waagent, "WALAEventOperation"):
         Enable = "Enable"
         Download = "Download"
         Upgrade = "Upgrade"
-        Update = "Update"           
+        Update = "Update"
+
+
     waagent.WALAEventOperation = _WALAEventOperation
 
 # Better deal with the silly waagent typo, in anticipation of a proper fix of the typo later on waagent
@@ -87,7 +95,8 @@ def GetWaagentHttpProxyConfigString():
     host = None
     port = None
     try:
-        waagent.Config = waagent.ConfigurationProvider(None)  # Use default waagent conf file (most likely /etc/waagent.conf)
+        waagent.Config = waagent.ConfigurationProvider(
+            None)  # Use default waagent conf file (most likely /etc/waagent.conf)
 
         host = waagent.Config.get("HttpProxy.Host")
         port = waagent.Config.get("HttpProxy.Port")
@@ -120,8 +129,8 @@ def InitExtensionEventLog(name):
 
 
 def AddExtensionEvent(name=__ExtensionName__,
-                      op=waagent.WALAEventOperation.Enable, 
-                      isSuccess=False, 
+                      op=waagent.WALAEventOperation.Enable,
+                      isSuccess=False,
                       message=None):
     if name is not None:
         waagent.AddExtensionEvent(name=name,

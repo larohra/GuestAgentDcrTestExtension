@@ -5,10 +5,11 @@ import Utils.HandlerUtil as Util
 
 ExtensionShortName = "SampleExtension"
 
+
 def main():
-    #Global Variables definition
-    waagent.LoggerInit('/var/log/waagent.log','/dev/stdout')
-    waagent.Log("%s started to handle." %(ExtensionShortName))
+    # Global Variables definition
+    waagent.LoggerInit('/var/log/waagent.log', '/dev/stdout')
+    waagent.Log("%s started to handle." % (ExtensionShortName))
 
     operation = "install"
     status = "success"
@@ -26,5 +27,5 @@ def parse_context(operation):
     return hutil
 
 
-if __name__ == '__main__' :
+if __name__ == '__main__':
     main()

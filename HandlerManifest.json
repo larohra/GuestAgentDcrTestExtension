@@ -1,12 +1,12 @@
 [{
-  "name": "SampleExtension",
+  "name": "GuestAgentDcrTestExtension",
   "version": 1.0,
   "handlerManifest": {
-    "installCommand": "./install.py",
-    "uninstallCommand": "./uninstall.py",
-    "updateCommand": "./update.py",
-    "enableCommand": "./enable.py",
-    "disableCommand": "./disable.py",
+    "installCommand": "./src/install.py",
+    "uninstallCommand": "./src/uninstall.py",
+    "updateCommand": "./src/update.py",
+    "enableCommand": "./src/enable.py",
+    "disableCommand": "./src/disable.py",
     "rebootAfterInstall": false,
     "reportHeartbeat": false
   }
