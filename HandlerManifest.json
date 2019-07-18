@@ -2,11 +2,11 @@
   "name": "GuestAgentDcrTestExtension",
   "version": 1.0,
   "handlerManifest": {
-    "installCommand": "./src/install.py",
-    "uninstallCommand": "./src/uninstall.py",
-    "updateCommand": "./src/update.py",
-    "enableCommand": "./src/enable.py",
-    "disableCommand": "./src/disable.py",
+    "installCommand": "./GuestAgentDcrTest.py --install",
+    "uninstallCommand": "./GuestAgentDcrTest.py --uninstall",
+    "updateCommand": "./GuestAgentDcrTest.py --update",
+    "enableCommand": "./GuestAgentDcrTest.py --enable",
+    "disableCommand": "./GuestAgentDcrTest.py --disable",
     "rebootAfterInstall": false,
     "reportHeartbeat": false
   }
