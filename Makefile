@@ -5,4 +5,4 @@ build:
 	$(eval VERSION = $(shell grep -Pom1 "(?<=<Version>)[^<]+" manifest.xml))
 
 	@echo "Building '$(NAME)-$(VERSION).zip' ..."
-	zip -9 $(NAME)-$(VERSION).zip *
+	zip -r9 $(NAME)-$(VERSION).zip *
