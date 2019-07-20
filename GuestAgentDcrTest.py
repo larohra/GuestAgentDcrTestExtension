@@ -37,6 +37,7 @@ def enable():
     if name:
         name = "Name: Hello {0}".format(name)
         hutil.log(name)
+        msg = "{0} {1}".format(msg, name)
         print(name)
     else:
         hutil.error("The name in public settings is not provided.")
