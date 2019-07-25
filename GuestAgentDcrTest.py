@@ -91,7 +91,7 @@ def parse_context(operation):
     hutil.do_parse_context(operation)
     op_log = os.path.join(hutil.get_log_dir(), OperationFileName.format(hutil.get_extension_version()))
     with open(op_log, 'a+') as oplog_handler:
-        oplog_handler.write("{0} Operation: {1}; Seq No: {2}\n"
+        oplog_handler.write("Date:{0}; Operation:{1}; SeqNo:{2}\n"
                             .format(datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
                                     operation, hutil.get_seq_no()))
     return hutil
