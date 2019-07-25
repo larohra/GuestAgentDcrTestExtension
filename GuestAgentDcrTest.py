@@ -7,9 +7,10 @@ import sys
 import re
 import traceback
 import os
+import datetime
 
 ExtensionShortName = "GADcrTestExt"
-OperationFileName = "operations.log"
+OperationFileName = "operations-{0}.log"
 
 
 def install():
@@ -88,9 +89,11 @@ def update():
 def parse_context(operation):
     hutil = Util.HandlerUtility(waagent.Log, waagent.Error)
     hutil.do_parse_context(operation)
-    op_log = os.path.join(hutil.get_log_dir(), OperationFileName)
+    op_log = os.path.join(hutil.get_log_dir(), OperationFileName.format(hutil.get_extension_version()))
     with open(op_log, 'a+') as oplog_handler:
-        oplog_handler.write("Operation: {0}; Seq No: {1}\n".format(operation, hutil.get_seq_no()))
+        oplog_handler.write("{0} Operation: {1}; Seq No: {2}\n"
+                            .format(datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+                                    operation, hutil.get_seq_no()))
     return hutil
 
 
