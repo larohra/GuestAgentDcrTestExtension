@@ -36,7 +36,7 @@ def enable():
     public_settings = hutil.get_public_settings()
     name = public_settings.get("name")
     if name:
-        name = "Name: Hello {0}".format(name)
+        name = "Name: {0}".format(name)
         hutil.log(name)
         msg = "{0} {1}".format(msg, name)
         print(name)
