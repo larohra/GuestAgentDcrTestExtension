@@ -174,7 +174,7 @@ class HandlerUtility:
     def _parse_config(self, ctxt):
         config = None
         try:
-            config = json.loads(ctxt)
+            config = json.loads(ctxt, encoding='utf-8')
         except:
             self.error('JSON exception decoding ' + HandlerUtility.redact_protected_settings(ctxt))
 
