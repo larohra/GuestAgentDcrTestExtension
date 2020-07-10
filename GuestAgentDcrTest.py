@@ -34,7 +34,7 @@ def enable():
     hutil = parse_context(operation)
     hutil.log("Start to enable.")
     public_settings = hutil.get_public_settings()
-    name = public_settings.get("name")
+    name = public_settings.get("name").decode('utf-8')
     if name:
         name = "Name: {0}".format(name)
         hutil.log(name)
